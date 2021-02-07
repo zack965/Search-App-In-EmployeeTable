@@ -1,0 +1,70 @@
+﻿@model IEnumerable<tp02skito.Models.Employee>
+
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empPrenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empAge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empPrenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empAge)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.empId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.empId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.empId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h1>q1</h1>
+<form class="form-inline my-2 my-lg-0" asp-action="FindByAge" asp-controller="Employee">
+    <input class="form-control mr-sm-2" name="id" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+<h1>q2</h1>
+<form class="form-inline my-2 my-lg-0" asp-action="FindByLetterr" asp-controller="Employee">
+    <input class="form-control mr-sm-2" name="letter" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+<h1>q3</h1>
+
+<form class="form-inline my-2 my-lg-0" asp-action="FindBetweenn" asp-controller="Employee">
+    <input class="form-control mr-sm-2" name="idone" type="search" placeholder="idone">
+    <input class="form-control mr-sm-2" name="idtwo" type="search" placeholder="idtwo">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+
+
